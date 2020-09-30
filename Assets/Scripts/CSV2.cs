@@ -39,7 +39,14 @@ public class CSV2 : MonoBehaviour
             while (!reader.EndOfStream)
             {
                 var line = reader.ReadLine();
-                data = data + line + "\n";
+                if (line != "")
+                {
+                    data = data + line + "\n";
+                }
+                else
+                {
+                    Debug.Log("Empty row");
+                }
             }
         }
 
@@ -114,7 +121,7 @@ public class CSV2 : MonoBehaviour
         if (nowyProdukt == true)
         {
             Debug.Log("Nowy produkt");
-            sb = sb + "\n" + produkt + delimiter + ilosc + delimiter + opis;
+            sb = sb + produkt + delimiter + ilosc + delimiter + opis;
         }
         else
         {
