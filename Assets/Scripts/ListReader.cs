@@ -8,15 +8,19 @@ using TMPro;
 
 public class ListReader : MonoBehaviour
 {
+    string filePath = "";
+    string fileName = "example.csv";
+
     // Start is called before the first frame update
     void Start()
     {
+        filePath = (Application.dataPath + "\\Resources\\" + fileName).ToString();
+
         UpdateCSVRead();
     }
 
     public void UpdateCSVRead()
     {
-        string filePath = "C:\\UnityProjects\\NaszaLodowka\\Assets\\Resources\\example.csv";
         string sb = "";
 
         using (var reader = new StreamReader(filePath))

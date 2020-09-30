@@ -32,9 +32,19 @@ public class CSV2 : MonoBehaviour
         string delimiter = ";";
         string sb = "";
         bool nowyProdukt = true;
+        string data = "";
 
-        TextAsset data = Resources.Load("example") as TextAsset;
-        string[] lines = data.text.Split("\n"[0]);
+        using (var reader = new StreamReader(filePath))
+        {
+            while (!reader.EndOfStream)
+            {
+                var line = reader.ReadLine();
+                data = data + line + "\n";
+            }
+        }
+
+
+        string[] lines = data.Split("\n"[0]);
         Debug.Log("ilosc linii = " + lines.Length);
 
 
@@ -116,7 +126,8 @@ public class CSV2 : MonoBehaviour
         outStream.Write(sb);
         outStream.Close();
 
-
+        ListReader listreader = FindObjectOfType<ListReader>();
+        listreader.UpdateCSVRead();
 
     }
     public void Awake()
