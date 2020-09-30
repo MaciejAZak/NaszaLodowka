@@ -25,7 +25,7 @@ public class PlusMinus : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && Active && this.name == "PlusButton")
         {
-
+            
             Debug.Log(this.name + "clicked Plus");
             currentAmount.GetComponent<TextMeshPro>().text = "1";
         }
