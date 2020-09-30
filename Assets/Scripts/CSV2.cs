@@ -8,7 +8,9 @@ using UnityEngine.UI;
 
 public class CSV2 : MonoBehaviour
 {
-    string filePath = "C:\\UnityProjects\\NaszaLodowka\\Assets\\Resources\\example.csv";
+    //string filePath = "C:\\UnityProjects\\NaszaLodowka\\Assets\\Resources\\example.csv";
+    string filePath = "";
+    string fileName = "example.csv";
 
     public void GetForms()
     {
@@ -114,6 +116,10 @@ public class CSV2 : MonoBehaviour
         outStream.Write(sb);
         outStream.Close();
 
+    }
+    public void Awake()
+    {
+        filePath = (Application.dataPath + "\\Resources\\" + fileName).ToString();
     }
 
 }
