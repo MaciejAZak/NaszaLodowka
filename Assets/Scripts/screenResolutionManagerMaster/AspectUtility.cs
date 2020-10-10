@@ -46,10 +46,13 @@ public class AspectUtility : MonoBehaviour
         }
 
         // Pillarbox
+
+        //TODO: current aspect ratio is messed up in cam.rect - setting 1.33 to 1 while it whould be 1.6 to 1. Change new Rect to (0, something, 1, something)
         if (currentAspectRatio > ResolutionManager.TargetAspectRatio)
         {
-            float inset = 1.0f - ResolutionManager.TargetAspectRatio / currentAspectRatio;
-            cam.rect = new Rect(inset / 2, 0.0f, 1.0f - inset, 1.0f);
+            float inset = 1.0f - ResolutionManager.TargetAspectRatio / currentAspectRatio; //target i current aspect ratio powinny być takie same
+            //cam.rect = new Rect(inset / 2, 0.0f, 1.0f - inset, 1.0f); //tak jest niestety źle, choć powinno być ok
+            cam.rect = new Rect(0.0f, 0.0f, 1.0f, 1.0f); // tak jest ok, pytanie dlaczego
         }
         // Letterbox
         else

@@ -147,15 +147,18 @@ public class ResolutionManager : MonoBehaviour
         {
             currFullscreenRes = index;
             r = FullscreenResolutions[currFullscreenRes];
+            Debug.Log("fullscreen");
         }
         else
         {
             currWindowedRes = index;
             r = WindowedResolutions[currWindowedRes];
+            Debug.Log("windowed");
         }
 
         bool fullscreen2windowed = Screen.fullScreen & !fullscreen;
 
+        
         Debug.Log("Setting resolution to " + (int)r.x + "x" + (int)r.y);
         Screen.SetResolution((int)r.x, (int)r.y, fullscreen);
 
